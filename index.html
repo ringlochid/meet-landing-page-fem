@@ -23,6 +23,10 @@
 
     * { box-sizing: border-box; }
 
+    button:hover {
+      cursor: pointer;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -139,6 +143,10 @@
       gap: 0.25rem;
     }
 
+    .button-blue:hover {
+      background: #71C0D4;
+    }
+
     .button-blue .version {
       color: var(--color-cyan-300);
     }
@@ -146,6 +154,10 @@
     .button-purple {
       background: var(--color-purple-600);
       color: var(--color-white);
+    }
+
+    .button-purple:hover {
+      background: #B18BDD;
     }
 
     @media (min-width: 768px) {
@@ -402,6 +414,8 @@
       z-index: 2;
     }
 
+    .footer-button-container .version{color: var(--color-purple-300, #D9B8FF); margin-left: 0.25rem;}
+
     @media (min-width: 1440px) {
       .footer-button-container {
         position: relative;
@@ -475,7 +489,7 @@
       
       <div class="footer-button-container">
         <button class="button-purple" type="button">
-          Download <span class="version">v1.3</span>
+          Download <span class="version"> v1.3</span>
         </button>
       </div>
     </div>
