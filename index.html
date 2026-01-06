@@ -29,6 +29,8 @@
       background: var(--color-white);
       font-family: "Red Hat Display", sans-serif;
       overflow-x: hidden;
+      height: 100%;
+      overflow: hidden;
     }
 
     body { min-height: 100dvh; }
@@ -40,6 +42,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .logo-area {
@@ -172,7 +177,7 @@
         width: 100%;
         justify-content: space-between;
         padding: 0;
-        overflow: hidden;
+        /* overflow: hidden; Removed to fix height collapse */
       }
 
       .hero-image-full { display: none; }
@@ -200,6 +205,206 @@
         height: 100%;
         width: auto;
         display: block;
+      }
+    }
+
+    .step-separator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+
+    .step-line {
+      width: 1px;
+      height: 5.25rem;
+      background-color: var(--color-slate-600);
+      opacity: 0.25;
+    }
+
+    .step-circle {
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: var(--color-white);
+      border: 1px solid rgba(135, 135, 157, 0.25);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      color: var(--color-slate-600);
+      font-weight: 900;
+      font-size: 1rem;
+      position: relative;
+      background-clip: padding-box;
+    }
+
+    .section-images {
+      width: 100%;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1440px;
+    }
+
+    .section-images img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+       .section-images {
+         grid-template-columns: repeat(4, 1fr);
+         gap: 1.5rem;
+         padding: 5rem 2.5rem;
+       }
+    }
+
+    @media (min-width: 1440px) {
+      .section-images {
+        padding: 6rem 10.25rem;
+        gap: 2rem;
+      }
+    }
+
+    .feature-text {
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 35rem; /* Limit width for readability */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature-text h2 {
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      color: var(--color-cyan-600);
+      font-size: 1rem;
+      font-weight: 900;
+      margin: 0 0 1rem 0;
+    }
+
+    .feature-text h3 {
+      font-size: 2rem;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--color-slate-900);
+      margin: 0 0 2rem 0;
+      max-width: 28rem;
+    }
+
+    .feature-text p {
+      color: var(--color-slate-600);
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 500;
+      margin: 0 0 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .feature-text h3 { font-size: 2.5rem; }
+    }
+
+    .footer-cta {
+      width: 100%;
+      position: relative;
+      background-image: url('./assets/mobile/image-footer.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem 1.5rem;
+      color: var(--color-white);
+      margin-top: -1.75rem; 
+    }
+
+    .footer-cta::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(77, 150, 169, 0.9);
+      z-index: 1;
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 35rem;
+    }
+
+    .footer-content h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 2rem 0;
+    }
+
+    .footer-content p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-weight: 500;
+      margin: 0 0 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .footer-cta {
+        background-image: url('./assets/tablet/image-footer.jpg');
+        padding: 5rem 2.5rem 4rem 2.5rem;
+      }
+      .footer-content h2 { font-size: 2.5rem; }
+    }
+
+    @media (min-width: 1440px) {
+      .footer-cta {
+        background-image: url('./assets/desktop/image-footer.jpg');
+        padding: 7rem 2.5rem 6.5rem 2.5rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 8rem;
+        text-align: left;
+      }
+      
+      .footer-content {
+         align-items: flex-start;
+         text-align: left;
+         max-width: 30rem;
+      }
+      
+      .footer-content h2,
+      .footer-content p { margin-bottom: 0; }
+      
+      .footer-content h2 { margin-bottom: 1rem; }
+      
+      .footer-button-container {
+        position: relative;
+        z-index: 2;
+      }
+    }
+
+    .step-circle-secondary {
+      background: var(--color-white);
+      z-index: 3;
+    }
+    
+    .footer-button-container {
+      z-index: 2;
+    }
+
+    @media (min-width: 1440px) {
+      .footer-button-container {
+        position: relative;
       }
     }
   </style>
@@ -238,6 +443,43 @@
         </div>
       </div>
     </div>
+
+    <div class="step-separator">
+      <div class="step-line"></div>
+      <div class="step-circle">01</div>
+    </div>
+
+    <div class="section-images">
+      <img src="./assets/desktop/image-woman-in-videocall.jpg" alt="Woman in videocall" />
+      <img src="./assets/desktop/image-women-videochatting.jpg" alt="Women videochatting" />
+      <img src="./assets/desktop/image-men-in-meeting.jpg" alt="Men in meeting" />
+      <img src="./assets/desktop/image-man-texting.jpg" alt="Man texting" />
+    </div>
+
+    <div class="feature-text">
+      <h2>Built for modern use</h2>
+      <h3>Smarter meetings, all in one place</h3>
+      <p>Send messages, share files, show your screen, and record your meetings — all in one workspace. Control who can join with invite-only team access, data encryption, and data export.</p>
+    </div>
+
+    <div class="step-separator">
+      <div class="step-line"></div>
+      <div class="step-circle step-circle-secondary">02</div>
+    </div>
+
+    <div class="footer-cta">
+      <div class="footer-content">
+        <h2>Experience more together</h2>
+        <p>Stay connected with reliable HD meetings and unlimited one-on-one and group video sessions.</p>
+      </div>
+      
+      <div class="footer-button-container">
+        <button class="button-purple" type="button">
+          Download <span class="version">v1.3</span>
+        </button>
+      </div>
+    </div>
+
   </main>
 </body>
 </html>
